@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+</head>
+
+<body>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slide-one">
+                    <img src="images/logo.png" alt="logo">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide-two">
+                    <img src="images/uzbekistan-map.jpg" alt="map">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="position-relative">
+                    <img src="images/3D_image.png" class="image" alt="3D_image">
+                    <div class="item first">
+                        <div class="click">
+                            <svg width="40" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="animation">
+                            <circle cx="20" cy="20" fill="none" r="10" stroke="rgba(255, 255, 255, 0.8)"
+                                stroke-width="2">
+                                <animate attributeName="r" from="8" to="20" dur="1.5s" begin="0s"
+                                    repeatCount="indefinite"></animate>
+                                <animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="0s"
+                                    repeatCount="indefinite"></animate>
+                            </circle>
+                            <circle cx="20" cy="20" fill="rgba(255, 255, 255, 0.0)" r="10"></circle>
+                        </svg>
+                        </div>
+                        <div class="info">
+                            <p class="info-title"><b>San'at ko'rgazmalar zali</b></p>
+                            <p class="info-text">
+                                Bu yerda O'zbekistondagi San'at taluqli bino maketari, kiyimlar va boshqa san'at aloqador buyumlar jamlangan.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item second">
+                        <div class="click">
+                            <svg width="40" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="animation">
+                            <circle cx="20" cy="20" fill="none" r="10" stroke="rgba(255, 255, 255, 0.8)"
+                                stroke-width="2">
+                                <animate attributeName="r" from="8" to="20" dur="1.5s" begin="0s"
+                                    repeatCount="indefinite"></animate>
+                                <animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="0s"
+                                    repeatCount="indefinite"></animate>
+                            </circle>
+                            <circle cx="20" cy="20" fill="rgba(255, 255, 255, 0.0)" r="10"></circle>
+                        </svg>
+                        </div>
+                        <div class="info">
+                            <p class="info-title"><b>San'at ko'rgazmalar zali</b></p>
+                            <p class="info-text">
+                                Bu yerda O'zbekistondagi San'at taluqli bino maketari, kiyimlar va boshqa san'at aloqador buyumlar jamlangan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                grabCursor: true,
+            });
+
+
+            $('.click').on('click', function() {
+                let $answer = $(this).next();
+                $(".show").removeClass("animation")
+                $('.info').not($answer).slideUp().removeClass("show");
+                $answer.slideToggle().addClass("show");
+                if ($('.info').css('display') == 'block') {
+                    setTimeout(() => {
+                        $(".show").addClass("animation")
+                    }, 1000);
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>
